@@ -1,5 +1,5 @@
 <template>
-  <h1>Offre d'emploi</h1>
+  <h1>Monster-Job</h1>
 </template>
   
 <script>
