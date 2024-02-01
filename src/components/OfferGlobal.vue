@@ -7,7 +7,6 @@
 </template>
   
 <script>
-import apiService from '../functions/apiService'
 export default {
   name: 'OfferGlobal',
   data: () => ({
@@ -19,29 +18,9 @@ export default {
       department: '',
     }
   }),
-  created() {
-    this.GETOffer();
-  },
   computed: {
   },
   methods: {
-    async GETOffer() {
-
-      let listOffer = [];
-      console.log(listOffer)
-      try {
-        const response = await apiService.get();
-        this.offer.name = response.data.name
-        console.log('name', response.data.offer[0].name);
-        this.offer = response.data.offer[0];
-        return this.offer
-
-      }
-      catch (error) {
-        console.log(error)
-      }
-
-    },
   }
 }
 </script>
