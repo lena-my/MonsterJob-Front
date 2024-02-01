@@ -9,6 +9,11 @@ export default class Monster {
         S:'green',
         0:'Black',
     }
+    name="body_blueD.png";
+    x="192";
+    y="546";
+    width="174";
+    height="182";
 
 	constructor() {
         console.log('creation du monstre');
@@ -25,5 +30,24 @@ export default class Monster {
         return this.listLevel[this.level];
     }
     
+    GETName(){
+        return this.name;
+    }
+
+    GETX(){
+        return this.x;
+    }
+
+    GETY(){
+        return this.y;
+    }
+
+    GETWidth(){
+        return this.width;
+    }
+
+    GETHeight(){
+        return this.Height;
+    }
     
 }

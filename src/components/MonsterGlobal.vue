@@ -40,6 +40,7 @@ export default {
 .monsterGlobal {
   margin: 5%;
   width: 100%;
+  position: relative;
 }
 @media screen and (min-width: 600px){
   .monsterGlobal {
