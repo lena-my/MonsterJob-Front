@@ -34,6 +34,24 @@ export default {
 </script>
 
 <style lang="scss">
+
+html, body{
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #d4cedd;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+}
+
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 h1{
   background-color: blue;
 
