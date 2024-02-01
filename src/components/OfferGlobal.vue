@@ -1,26 +1,24 @@
 <template>
     <div class="offerGlobal" v-if="offer">
       <h2>{{ offer.name }}</h2>
-      <p>Offre crée le : {{ offer.date }}</p>
-      <button v-on:click="GETOffer()">Générer une autre offre</button>
+      <p>Offre crée le : {{ goodDate }}</p>
     </div>
 </template>
   
 <script>
 export default {
   name: 'OfferGlobal',
-  data: () => ({
-    offer: {
-      id: '',
-      name: '',
-      level: '',
-      date: '',
-      department: '',
-    }
-  }),
+  props:{
+    offer: Object
+  },
   computed: {
+    goodDate(){
+      return this.convertDate(this.offer.date);    }
   },
   methods: {
+    convertDate(date){
+      return new Date(date).toLocaleDateString("fr");
+    }
   }
 }
 </script>
@@ -29,12 +27,6 @@ export default {
   text-align: center;
   margin: 5%;
   width: 100%;
-  button{
-    width: fit-content;
-    border-radius: 3px;
-    padding: 5px;
-    cursor: pointer;
-  }
 }
 @media screen and (min-width: 600px){
   .offerGlobal {
