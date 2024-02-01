@@ -1,12 +1,21 @@
 <template>
-  <h1><p>titre</p></h1>
+  <HeaderGlobal></HeaderGlobal>
+  <OfferGlobal></OfferGlobal>
+  <MonsterGlobal></MonsterGlobal>
+
 </template>
 
 <script>
+import HeaderGlobal from "./components/HeaderGlobal.vue";
+import MonsterGlobal from "./components/MonsterGlobal.vue";
+import OfferGlobal from "./components/OfferGlobal.vue";
 
 export default {
   name: 'App',
   components: {
+    HeaderGlobal,
+    OfferGlobal,
+    MonsterGlobal,
   }
 }
 </script>
