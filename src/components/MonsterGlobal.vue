@@ -1,10 +1,12 @@
 <template>
-  <MonsterHead :MyMonster="MyMonster"></MonsterHead>
+  <div class="monsterGlobal">
+    <MonsterHead :MyMonster="MyMonster"></MonsterHead>
   <MonsterChest :MyMonster="MyMonster"></MonsterChest>
   <MonsterArm :MyMonster="MyMonster"></MonsterArm>
   <MonsterArm :MyMonster="MyMonster"></MonsterArm>
   <MonsterLeg :MyMonster="MyMonster"></MonsterLeg>
   <MonsterLeg :MyMonster="MyMonster"></MonsterLeg>
+  </div>
 </template>
   
 <script>
@@ -34,5 +36,15 @@ export default {
   }
 }
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.monsterGlobal {
+  margin: 5%;
+  width: 100%;
+}
+@media screen and (min-width: 600px){
+  .monsterGlobal {
+  width: 50%;
+  }
+}
+</style>
   

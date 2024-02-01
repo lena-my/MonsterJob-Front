@@ -1,12 +1,9 @@
 <template>
-  <div>
-    <div v-if="offer">
+    <div class="offerGlobal" v-if="offer">
       <h2>{{ offer.name }}</h2>
       <p>Offre crée le : {{ offer.date }}</p>
-      <p>Département : {{ offer.department }}</p>
+      <button v-on:click="GETOffer()">Générer une autre offre</button>
     </div>
-  </div>
-
 </template>
   
 <script>
@@ -49,8 +46,21 @@ export default {
 }
 </script>
 <style lang="scss">
-div {
+.offerGlobal {
   text-align: center;
+  margin: 5%;
+  width: 100%;
+  button{
+    width: fit-content;
+    border-radius: 3px;
+    padding: 5px;
+    cursor: pointer;
+  }
+}
+@media screen and (min-width: 600px){
+  .offerGlobal {
+  width: 50%;
+  }
 }
 </style>
   
