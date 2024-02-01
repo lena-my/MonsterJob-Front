@@ -42,35 +42,35 @@ export default {
       return year;
     },
 
-async GETOffer() {
-  try {
-    console.log('Avant appel API', apiService.get('/getOffer'));
-    const response = await apiService.get('/getOffer');
-    console.log('Après appel API, avant mise à jour de offer');
-    this.offer = response.data;
-    console.log('Après mise à jour de offer', this.offer);
-  } catch (error) {
-    console.log('Erreur lors de la récupération des données:', error);
-  }
-},
+    async GETOffer() {
+      try {
+        console.log('Avant appel API', apiService.get('/getOffer'));
+        const response = await apiService.get('/getOffer');
+        console.log('Après appel API, avant mise à jour de offer');
+        this.offer = response.data;
+        console.log('Après mise à jour de offer', this.offer);
+      } catch (error) {
+        console.log('Erreur lors de la récupération des données:', error);
+      }
+    },
 
-// GETOffer() {
-//   apiService.get('/getOffer')
-//     .then(response => {
-//       console.log('Après appel API, avant mise à jour de offer');
-//       this.offer = response.data;
-//       console.log('Après mise à jour de offer', this.offer);
-//     })
-//     .catch(error => {
-//       console.log('Erreur lors de la récupération des données:', error);
-//     });
-// }
+    // GETOffer() {
+    //   apiService.get('/getOffer')
+    //     .then(response => {
+    //       console.log('Après appel API, avant mise à jour de offer');
+    //       this.offer = response.data;
+    //       console.log('Après mise à jour de offer', this.offer);
+    //     })
+    //     .catch(error => {
+    //       console.log('Erreur lors de la récupération des données:', error);
+    //     });
+    // }
   },
 
   created() {
 
     //recuperer le spritesheet
-    console.log ('données', this.GETOffer())
+    console.log('données', this.GETOffer())
     this.GETOffer();
     // this.$store.commit('UPDATEspriteSheet', ['truc']);
     // console.log(this.$store.getters.GETspriteSheet());
@@ -88,21 +88,25 @@ body {
   padding: 0;
   background-color: #d4cedd;
   overflow: hidden;
-  main{
+
+  main {
     .offerAndMonster {
-        display: flex;
-        flex-direction: column;
-        justify-content: top;
-        align-items: center;
-      }
+      display: flex;
+      flex-direction: column;
+      justify-content: top;
+      align-items: center;
+    }
+
     button {
-  text-align: center;
-  width: fit-content;
-  border-radius: 3px;
-  padding: 5px;
-  cursor: pointer;
-  margin: auto;
-}
+      text-align: center;
+      width: fit-content;
+      border-radius: 3px;
+      padding: 5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      margin: auto;
+    }
   }
 
 }
