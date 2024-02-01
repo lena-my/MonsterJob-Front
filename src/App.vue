@@ -1,7 +1,13 @@
 <template>
   <HeaderGlobal></HeaderGlobal>
-  <OfferGlobal></OfferGlobal>
-  <MonsterGlobal></MonsterGlobal>
+  <main>
+    <OfferGlobal></OfferGlobal>
+    <MonsterGlobal></MonsterGlobal>
+  </main>
+  <footer>
+    <p> &copy; Hackathon {{ dateYear() }}, All Right Reserved</p>
+  </footer>
+  
 
 </template>
 
@@ -16,7 +22,14 @@ export default {
     HeaderGlobal,
     OfferGlobal,
     MonsterGlobal,
-  }
+  },
+  methods: {
+      dateYear() {
+        const date = new Date();
+        const year = date.getFullYear()
+        return year;
+      }
+    }
 }
 </script>
 
@@ -28,5 +41,8 @@ h1{
     color: red;
   }
 
+}
+footer{
+  text-align: center;
 }
 </style>
