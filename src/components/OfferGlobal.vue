@@ -2,7 +2,7 @@
     <div class="offerGlobal" v-if="offer">
       <h2>{{ offer.name }}</h2>
       <p>Offre crée le : {{ goodDate }}</p>
-      <p>Niveau {{ this.levelName }} accepté</p>
+      <p>Niveau {{ levelName }} accepté</p>
     </div>
 </template>
   
@@ -12,32 +12,31 @@ export default {
   props:{
     offer: Object
   },
-  data(){
-    return {levelName: ""}
-  },
   computed: {
     goodDate(){
-      return this.convertDate(this.offer.date);    }
+      return this.convertDate(this.offer.date);    
+    }, 
+    levelName(){
+      if(this.offer.level === "D"){
+      return "débutant"
+    }
+    else if(this.offer.level === "E"){
+      return "expert"
+    }
+    else if(this.offer.level === "S"){
+      return "sénior"
+    }
+    else{
+      return ""
+    }    
+  }
   },
   methods: {
     convertDate(date){
       return new Date(date).toLocaleDateString("fr");
     },
     
-  },
-  nameLevel(){
-    if(this.offer.level === "D"){
-      return this.levelName = "débutant"
-    }
-    if(this.offer.level === "E"){
-      return this.levelName = "expert"
-    }
-    if(this.offer.level === "S"){
-      return this.levelName = "sénior"
-    }
-    return ""
   }
-
 }
 </script>
 <style lang="scss">

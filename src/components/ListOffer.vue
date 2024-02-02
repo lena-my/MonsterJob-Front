@@ -11,7 +11,7 @@
          <button v-on:click="prev()">Précédent</button>
         <button v-on:click="next()">Suivant</button>
     </div>
-    <router-link :to="{ name: 'App' }" class="back_home">Retour à l'accueil</router-link>
+    <router-link :to="{ name: 'Offer' }" class="back_home">Retour à l'accueil</router-link>
 
 </template>
   

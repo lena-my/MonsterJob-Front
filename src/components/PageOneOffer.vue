@@ -1,6 +1,4 @@
 <template>
-  <router-link :to="{ name: 'ListOffer' }">Voir la liste des offres</router-link>
-
   <div class="offerAndMonster" v-if="offer && HasResponse">
     <OfferGlobal :offer="offer"></OfferGlobal>
     <MonsterGlobal :offer="offer"></MonsterGlobal>
