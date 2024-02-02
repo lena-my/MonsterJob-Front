@@ -36,8 +36,6 @@ export default {
   },
   created() {
     this.MyMonster.InitLevel(this.offer.level);
-    let color = this.MyMonster.GETColor();
-    console.log(color);
   }
 }
 </script>

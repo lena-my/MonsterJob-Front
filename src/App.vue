@@ -1,13 +1,7 @@
 <template>
   <HeaderGlobal></HeaderGlobal>
   <main>
-    <router-link :to="{ name: 'ListOffer'}" v-if="this.$route.name == 'App'">Voir la liste des offres</router-link>
-    <div class="offerAndMonster" v-if="offer && this.$route.name == 'App'">
-      <OfferGlobal :offer="offer"></OfferGlobal>
-      <MonsterGlobal :offer="offer"></MonsterGlobal>
-    </div>
     <router-view></router-view>
-    <button v-if="offer && this.$route.path == '/'" v-on:click="GETOffer()">Générer une autre offre</button>
   </main>
   <footer>
     <p> &copy; Hackathon {{ dateYear() }}, All Right Reserved</p>
@@ -16,28 +10,15 @@
 
 <script>
 import HeaderGlobal from "./components/HeaderGlobal.vue";
-import MonsterGlobal from "./components/MonsterGlobal.vue";
-import OfferGlobal from "./components/OfferGlobal.vue";
-import apiService from './functions/apiService';
 import { RouterView } from 'vue-router';
 export default {
   name: 'App',
   components: {
     HeaderGlobal,
-    OfferGlobal,
-    MonsterGlobal,
     RouterView
   },
-  data: () => ({
-    offer: {
-      id: '',
-      name: '',
-      level: '',
-      date: '',
-    }
-  }),
-  computed: {
-  },
+
+
   methods: {
     dateYear() {
       const date = new Date();
@@ -45,40 +26,7 @@ export default {
       return year;
     },
 
-    async GETOffer() {
-      try {
-        console.log('Avant appel API', apiService.get('/getOffer'));
-        const response = await apiService.get('/getOffer');
-        console.log('Après appel API, avant mise à jour de offer');
-        this.offer = response.data;
-        console.log('Après mise à jour de offer', this.offer);
-      } catch (error) {
-        console.log('Erreur lors de la récupération des données:', error);
-      }
-    },
-
-    // GETOffer() {
-    //   apiService.get('/getOffer')
-    //     .then(response => {
-    //       console.log('Après appel API, avant mise à jour de offer');
-    //       this.offer = response.data;
-    //       console.log('Après mise à jour de offer', this.offer);
-    //     })
-    //     .catch(error => {
-    //       console.log('Erreur lors de la récupération des données:', error);
-    //     });
-    // }
-  },
-
-  created() {
-
-    //recuperer le spritesheet
-    console.log('données', this.GETOffer())
-    this.GETOffer();
-    // this.$store.commit('UPDATEspriteSheet', ['truc']);
-    // console.log(this.$store.getters.GETspriteSheet());
-  },
-
+  }
 }
 </script>
 

@@ -19,7 +19,8 @@ export default {
     convertDate(date){
       return new Date(date).toLocaleDateString("fr");
     }
-  }
+  },
+
 }
 </script>
 <style lang="scss">

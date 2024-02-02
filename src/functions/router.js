@@ -4,7 +4,8 @@ const routes = [
 
   {
     path: '/',
-    name: 'App',
+    name: 'Offer',
+    component: () => import('../components/PageOneOffer.vue')
   },
   {
     path: '/list_offer',
