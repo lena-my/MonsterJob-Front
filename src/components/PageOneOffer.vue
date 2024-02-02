@@ -2,7 +2,7 @@
         <router-link :to="{ name: 'ListOffer' }" >Voir la liste des offres</router-link>
 
       <div class="offerAndMonster" v-if="offer">
-        <!-- <OfferGlobal :offer="offer"></OfferGlobal> -->
+        <OfferGlobal ></OfferGlobal>
         <MonsterGlobal :offer="offer"></MonsterGlobal>
         <button v-on:click="reload()">Générer une autre offre</button>
 
@@ -12,12 +12,12 @@
   
   <script>
   import MonsterGlobal from "./MonsterGlobal.vue";
-  // import OfferGlobal from "./OfferGlobal.vue";
+  import OfferGlobal from "./OfferGlobal.vue";
   import apiService from '../functions/apiService';
   export default {
-    name: 'OfferGlobal',
+    name: 'PageOneOffer',
     components: {
-      // OfferGlobal,
+      OfferGlobal,
       MonsterGlobal,
     },
     data() {
@@ -33,6 +33,7 @@
         try {
           const response = await apiService.get('/getOffer');
           this.offer = response.data;
+          console.log(this.offer);
         } catch (error) {
           console.log('Erreur lors de la récupération des données:', error);
         }
@@ -40,25 +41,6 @@
       reload(){
         location.reload();
       }
-  
-      // GETOffer() {
-      //   apiService.get('/getOffer')
-      //     .then(response => {
-      //       console.log('Après appel API, avant mise à jour de offer');
-      //       this.offer = response.data;
-      //       console.log('Après mise à jour de offer', this.offer);
-      //     })
-      //     .catch(error => {
-      //       console.log('Erreur lors de la récupération des données:', error);
-      //     });
-      // }
-    },
-  
-    created() {
-  
-      //recuperer le spritesheet
-      this.GETOffer();
-  
     },
   
   }

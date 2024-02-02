@@ -29,18 +29,43 @@ export default class Monster {
         'eye_psycho_light',
         'eye_red',
         'eye_yellow',
-
     ];
-    name="body_blueD.png";
-    x="192";
-    y="546";
-    width="174";
-    height="182";
+    listMouth = [
+        '_closed_fangs',
+        '_closed_happy', 
+        '_closed_sad',
+        '_closed_teeth',
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+        'G',
+        'H',
+        'I',
+        'J',
+    ];
+    listNose = [
+        'nose_brown',
+        'nose_green', 
+        'nose_red',
+        'nose_yellow',
+        'snot_large',
+        'snot_small',
+    ];
+    listHorn= [
+        'antenna_large'
+    ];
+    isNose = false;
+    isHorn = false;
 
 	constructor() {
         console.log('creation du monstre');
         
-        this.numberEyes = Math.round(Math.random()*2);
+        this.numberEyes = Math.round(Math.random())+1;
+        this.isNose = Math.random() <0.5;
+        this.isHorn = Math.random() <0.5;
 
 	}
 
@@ -56,26 +81,49 @@ export default class Monster {
     }
 
     GETchest(){
-        let randomChest = Math.round(Math.random()*5);
+        let randomChest = Math.round(Math.random()*(this.listType.length-1));
         return this.source + 'body_' + this.GETColor() + this.listType[randomChest]+ '.png';
     }
 
     GETeye(){
-        let randomEye = Math.round(Math.random()*16);
+        let randomEye = Math.round(Math.random()*(this.listEye.length-1));
         return this.source + this.listEye[randomEye] + '.png';
+    }
+
+    GETmouth(){
+        let randomMouth = Math.round(Math.random()*(this.listMouth.length-1));
+        return this.source + 'mouth'+this.listMouth[randomMouth] + '.png';
     }
     
     GETnumberEye(){
         return this.numberEyes;
     }
+    
+    GETisNose(){
+        return this.isNose;
+    }
+    
+    GETisHorn(){
+        return this.isHorn;
+    }
+    
+    GETnose(){
+        let randomNose = Math.round(Math.random()*(this.listNose.length-1));
+        return this.source + this.listNose[randomNose]+ '.png';
+    }
+    
+    GEThorn(){
+        let randomHorn = Math.round(Math.random()*(this.listHorn.length-1));
+        return this.source + 'detail_' + this.GETColor() +'_'+ this.listHorn[randomHorn]+ '.png';
+    }
 
     GETleg(){
-        let randomHead = Math.round(Math.random()*4);
+        let randomHead = Math.round(Math.random()*(this.listType.length-2));
         return this.source + 'leg_' + this.GETColor() + this.listType[randomHead]+ '.png';
     }
 
     GETarm(){
-        let randomHead = Math.round(Math.random()*4);
+        let randomHead = Math.round(Math.random()*(this.listType.length-2));
         return this.source + 'arm_' + this.GETColor() + this.listType[randomHead]+ '.png';
     }
     
