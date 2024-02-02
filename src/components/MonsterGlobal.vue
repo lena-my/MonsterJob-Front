@@ -1,12 +1,12 @@
 <template>
   <div class="monsterGlobal">
-      <div class="monster-top">
-        <MonsterHead  :MyMonster="MyMonster"></MonsterHead>
-        <MonsterArm  :MyMonster="MyMonster"></MonsterArm>
-        <MonsterChest class="monster-chest" :MyMonster="MyMonster"></MonsterChest>
-      </div>
-      <MonsterLeg :MyMonster="MyMonster"></MonsterLeg>
-      
+    <div class="monster-top">
+      <MonsterHead :MyMonster="MyMonster"></MonsterHead>
+      <MonsterArm :MyMonster="MyMonster"></MonsterArm>
+      <MonsterChest class="monster-chest" :MyMonster="MyMonster"></MonsterChest>
+    </div>
+    <MonsterLeg :MyMonster="MyMonster"></MonsterLeg>
+
   </div>
 </template>
   
@@ -24,14 +24,18 @@ export default {
     MonsterArm,
     MonsterLeg,
     MonsterChest
-},
+  },
+  props: {
+    offer: Object
+  },
+
   data() {
     return {
       MyMonster: new Monster(),
     }
   },
   created() {
-    this.MyMonster.InitLevel('D');
+    this.MyMonster.InitLevel(this.offer.level);
     let color = this.MyMonster.GETColor();
     console.log(color);
   }
@@ -50,20 +54,23 @@ export default {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  .monster-top{
+
+  .monster-top {
     display: flex;
     position: absolute;
     bottom: 15px;
     z-index: 1;
     width: 100%;
-    .monster-chest{
+
+    .monster-chest {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 2;
     }
-    .monster-arms{
+
+    .monster-arms {
       display: flex;
       position: absolute;
       justify-content: center;
@@ -71,25 +78,28 @@ export default {
       width: 100%;
     }
   }
-  .monster-legs{
+
+  .monster-legs {
     display: flex;
     align-items: center;
     justify-content: center;
-    img{
+
+    img {
       padding: 10px;
     }
 
   }
+
   img {
     object-fit: contain;
     overflow: hidden;
     min-width: fit-content;
   }
 }
-@media screen and (min-width: 600px){
+
+@media screen and (min-width: 600px) {
   .monsterGlobal {
-  width: 50%;
+    width: 50%;
   }
-}
-</style>
+}</style>
   

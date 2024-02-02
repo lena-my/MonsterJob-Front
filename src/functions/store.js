@@ -8,8 +8,6 @@ const store = createStore({
         name: '',
         level: '',
         date: '',
-        department: '',
-        spriteSheet:[],
     },
 
     mutations: {
@@ -22,7 +20,6 @@ const store = createStore({
             state.name= offer.name;
             state.level= offer.level;
             state.date= offer.date;
-            state.department= offer.department;
         }
     },
 
@@ -44,9 +41,6 @@ const store = createStore({
         },
         GETofferDate : state => () =>{
             return state.date;
-        },
-        GETofferDepartment : state => () =>{
-            return state.department;
         }
     },
 });

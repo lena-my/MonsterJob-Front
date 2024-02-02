@@ -4,7 +4,7 @@
     <router-link :to="{ name: 'ListOffer'}" v-if="this.$route.name == 'App'">Voir la liste des offres</router-link>
     <div class="offerAndMonster" v-if="offer && this.$route.name == 'App'">
       <OfferGlobal :offer="offer"></OfferGlobal>
-      <MonsterGlobal></MonsterGlobal>
+      <MonsterGlobal :offer="offer"></MonsterGlobal>
     </div>
     <router-view></router-view>
     <button v-if="offer && this.$route.path == '/'" v-on:click="GETOffer()">Générer une autre offre</button>
