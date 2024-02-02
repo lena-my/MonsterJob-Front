@@ -54,11 +54,10 @@ export default class Monster {
         'snot_large',
         'snot_small',
     ];
-    listHorn= [
-        'antenna_large'
-    ];
+    listExtra= ['horn', 'antenna'];
+    listExtraSize = ['large', 'small']
     isNose = false;
-    isHorn = false;
+    typeExtra = 0;
 
 	constructor(level) {
         console.log('creation du monstre');
@@ -67,8 +66,6 @@ export default class Monster {
         }
         this.numberEyes = Math.round(Math.random())+1;
         this.isNose = Math.random() <0.5;
-        this.isHorn = Math.random() <0.5;
-
 	}
 
     GETColor(){
@@ -98,9 +95,6 @@ export default class Monster {
         return this.isNose;
     }
     
-    GETisHorn(){
-        return this.isHorn;
-    }
     
     GETnose(){
         let randomNose = Math.round(Math.random()*(this.listNose.length-1));
@@ -108,10 +102,49 @@ export default class Monster {
     }
     
     GEThorn(){
-        let randomHorn = Math.round(Math.random()*(this.listHorn.length-1));
-        return this.source + 'detail_' + this.GETColor() +'_'+ this.listHorn[randomHorn]+ '.png';
+        let ExtraSize = Math.round(Math.random()*(this.listExtraSize.length-1));
+        return this.source + 'detail_' + this.GETColor() +'_horn_'+ this.listExtraSize[ExtraSize]+ '.png';
+    }
+    
+    GETantenna(){
+        let ExtraSize = Math.round(Math.random()*(this.listExtraSize.length-1));
+        return this.source + 'detail_' + this.GETColor() +'_antenna_'+ this.listExtraSize[ExtraSize]+ '.png';
+    }
+    
+    GETear(){
+        let ExtraSize = Math.round(Math.random()*(this.listExtraSize.length-1));
+        return this.source + 'detail_' + this.GETColor() +'_antenna_'+ this.listExtraSize[ExtraSize]+ '.png';
+    }
+    
+    GETeyebrow(){
+        let ExtraSize = Math.round(Math.random()*(this.listExtraSize.length-1));
+        return this.source + 'detail_' + this.GETColor() +'_antenna_'+ this.listExtraSize[ExtraSize]+ '.png';
+    }
+    GETtypeExtra(){
+        return this.typeExtra;
     }
 
+    GETextra(){
+        let value = '';
+        this.typeExtra = Math.round(Math.random()*(this.listExtra.length));
+
+
+        switch (this.typeExtra) {
+            case 1:
+                value = this.GEThorn();
+                break;
+            case 2:
+                value = this.GETantenna();
+                break;
+            case 3:
+                value = this.GETear();
+                break;
+            case 4:
+                value = this.GETeyebrow();
+                break;
+        }
+        return value;
+    }
     GETleg(){
         let randomHead = Math.round(Math.random()*(this.listType.length-2));
         return this.source + 'leg_' + this.GETColor() + this.listType[randomHead]+ '.png';

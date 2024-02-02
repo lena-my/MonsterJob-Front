@@ -1,9 +1,11 @@
 <template>
   <div class="monster-head">
-    <div class="monster-horns" v-if="this.MyMonster.GETisHorn()">
-
-      <img :src="filePathHorn" alt="horn" class="horn right">
-      <img :src="filePathHorn" alt="horn" class="horn left">
+    <div class="monster-extra" v-if="filePathExtra !== ''">
+      <img :src="filePathExtra" v-if=" typeExtra == 1" alt="horn" class="horn right">
+      <img :src="filePathExtra" v-if=" typeExtra == 1" alt="horn" class="horn left">
+      
+      <img :src="filePathExtra" v-if=" typeExtra == 2" alt="antenna" class="antenna right">
+      <img :src="filePathExtra" v-if=" typeExtra == 2" alt="antenna" class="antenna left">
     </div>
     <div class="monster-eyes">
       <img :src="filePathEye" alt="eye" class="eye right">
@@ -20,8 +22,9 @@ export default {
     return {
       filePathEye: '',
       filePathMouth: '',
-      filePathHorn: '',
-      NumberEye:0
+      filePathExtra: '',
+      typeExtra:0,
+      NumberEye:0,
     }
   },
   props: {
@@ -33,11 +36,13 @@ export default {
     },
   },
   created() {
+    this.typeExtra = this.MyMonster.GETtypeExtra();
     this.filePathEye = this.MyMonster.GETeye();
     this.filePathMouth = this.MyMonster.GETmouth();
     this.filePathNose = this.MyMonster.GETnose();
-    this.filePathHorn = this.MyMonster.GEThorn();
-    console.log(this.filePathNose);
+    this.filePathExtra = this.MyMonster.GETextra();
+    this.typeExtra = this.MyMonster.GETtypeExtra();
+    console.log(this.filePathExtra);
     this.NumberEye = this.MyMonster.GETnumberEye();
   }
 };
@@ -52,22 +57,31 @@ export default {
   align-items: center;
   flex-direction: column;
   z-index: 50;
-  padding-top: 50px;
+  padding-top: 40px;
   .monster-eyes{
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
+    min-height: 50px;
   }
-  .monster-horns{
+  .monster-extra{
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     top: 10px;
     margin: 0;
-    img{
+    .horn{
+      padding: 0 10px;
+      position: relative;
+      top: 25px;
+
+    }
+    .antenna{
       padding: 0 15px;
+      position: relative;
+      top: 5px;
     }
   }
   .eye{

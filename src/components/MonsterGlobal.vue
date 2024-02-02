@@ -38,14 +38,14 @@ export default {
 </script>
 <style lang="scss">
 .monsterGlobal {
-
-  border: 3px red solid;
+  background-color: white;
+  border-radius: 10px;
   margin: 5%;
   width: 100%;
   position: relative;
   padding-top: 150px;
   min-height: 250px;
-  max-width: 325px;
+  min-width: 375px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

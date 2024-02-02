@@ -41,12 +41,10 @@ body {
   overflow: hidden;
 
   main {
-    .offerAndMonster {
-      display: flex;
-      flex-direction: column;
-      justify-content: top;
-      align-items: center;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     button {
       text-align: center;

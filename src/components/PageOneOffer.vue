@@ -52,6 +52,7 @@ export default {
   flex-direction: column;
   justify-content: top;
   align-items: center;
+  max-width: 1000px;
 }
 
 button {
