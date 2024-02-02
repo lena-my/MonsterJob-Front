@@ -2,12 +2,12 @@
         <router-link :to="{ name: 'ListOffer' }" >Voir la liste des offres</router-link>
 
       <div class="offerAndMonster" v-if="offer">
-        <OfferGlobal ></OfferGlobal>
+        <OfferGlobal :offer="offer"></OfferGlobal>
         <MonsterGlobal :offer="offer"></MonsterGlobal>
-        <button v-on:click="reload()">Générer une autre offre</button>
+        
 
       </div>
-  
+  <button v-on:click="reload()">Générer une autre offre</button>
   </template>
   
   <script>
