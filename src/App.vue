@@ -1,11 +1,13 @@
 <template>
   <HeaderGlobal></HeaderGlobal>
   <main>
-    <div class="offerAndMonster" v-if="offer">
+    <router-link :to="{ name: 'ListOffer'}" v-if="this.$route.name == 'App'">Voir la liste des offres</router-link>
+    <div class="offerAndMonster" v-if="offer && this.$route.name == 'App'">
       <OfferGlobal :offer="offer"></OfferGlobal>
       <MonsterGlobal></MonsterGlobal>
     </div>
-    <button v-on:click="GETOffer()">Générer une autre offre</button>
+    <router-view></router-view>
+    <button v-if="offer && this.$route.path == '/'" v-on:click="GETOffer()">Générer une autre offre</button>
   </main>
   <footer>
     <p> &copy; Hackathon {{ dateYear() }}, All Right Reserved</p>
@@ -17,12 +19,14 @@ import HeaderGlobal from "./components/HeaderGlobal.vue";
 import MonsterGlobal from "./components/MonsterGlobal.vue";
 import OfferGlobal from "./components/OfferGlobal.vue";
 import apiService from './functions/apiService';
+import { RouterView } from 'vue-router';
 export default {
   name: 'App',
   components: {
     HeaderGlobal,
     OfferGlobal,
     MonsterGlobal,
+    RouterView
   },
   data: () => ({
     offer: {
@@ -30,7 +34,6 @@ export default {
       name: '',
       level: '',
       date: '',
-      department: '',
     }
   }),
   computed: {
