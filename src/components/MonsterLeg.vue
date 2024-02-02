@@ -1,17 +1,32 @@
 <template>
-    <div>
-      <p>jambe</p>
-    </div>
-  </template>
+  <div class="monster-legs">
+    <img :src="filePath" alt="leg" class ="leg-right">
+    <img :src="filePath" alt="leg" class ="leg-left">
+  </div>
+</template>
   
-  <script>
-  export default {
-    props: {
-        MyMonster: Object,
-    },
-    created(){
-      console.log('jambe ' + this.MyMonster.GETColor());
+<script>
+export default {
+  
+  data() {
+    return {
+      filePath: '',
     }
-  };
-  </script>
+  },
+  props: {
+    MyMonster: Object,
+  },
+  methods: {
+  },
+  created() {
+    this.filePath = this.MyMonster.GETleg();
+  }
+};
+</script>
+<style lang="scss">
+
+.leg-right {
+  transform: scaleX(-1);
+}
+</style>
   

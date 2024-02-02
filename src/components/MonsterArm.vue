@@ -1,17 +1,39 @@
 <template>
-    <div>
-      <p>bras</p>
-    </div>
-  </template>
+  <div class="monster-arms">
+    <img :src="filePath" alt="arm" class ="arm-right">
+    <img :src="filePath" alt="arm" class ="arm-left">
+  </div>
+</template>
   
-  <script>
-  export default {
-    props: {
-        MyMonster: Object,
-    },
-    created(){
-      console.log('bras ' + this.MyMonster.GETColor());
+<script>
+export default {
+  
+  data() {
+    return {
+      filePath: '',
     }
-  };
-  </script>
+  },
+  props: {
+    MyMonster: Object,
+  },
+  methods: {
+  },
+  created() {
+    this.filePath = this.MyMonster.GETarm();
+  }
+};
+</script>
+<style lang="scss">
+  img{
+    padding: 50px;
+  }
+
+.arm-left{
+  transform: rotate(-50deg);
+
+}
+.arm-right {
+  transform: rotate(50deg) scaleX(-1);
+}
+</style>
   
