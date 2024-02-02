@@ -1,7 +1,7 @@
 <template>
         <router-link :to="{ name: 'ListOffer' }" >Voir la liste des offres</router-link>
 
-      <div class="offerAndMonster" v-if="offer">
+      <div class="offerAndMonster" v-if="offer ">
         <OfferGlobal :offer="offer"></OfferGlobal>
         <MonsterGlobal :offer="offer"></MonsterGlobal>
         
