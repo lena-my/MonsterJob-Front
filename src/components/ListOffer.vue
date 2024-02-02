@@ -1,18 +1,17 @@
 <template>
     <div class="list_offer" v-if="visibleOffers">
         <div v-for="offer in visibleOffers" :key="offer.id" class="offer">
-           <p>{{ offer.name }}</p> 
-           <p>{{ offer.date }}</p>
-        <div class="monster"></div>
+            <p>{{ offer.name }}</p>
+            <p>{{ offer.date }}</p>
+            <div class="monster"></div>
         </div>
-        
+
     </div>
     <div class="buttons">
-         <button v-on:click="prev()">Précédent</button>
+        <button v-on:click="prev()">Précédent</button>
         <button v-on:click="next()">Suivant</button>
     </div>
     <router-link :to="{ name: 'Offer' }" class="back_home">Retour à l'accueil</router-link>
-
 </template>
   
 <script>
@@ -176,31 +175,34 @@ export default {
 <style lang="scss">
 .list_offer {
     display: flex;
-    flex-direction: row; /* Assurez-vous que la direction est définie sur "row" pour un carrousel horizontal */
+    flex-direction: row;
+    /* Assurez-vous que la direction est définie sur "row" pour un carrousel horizontal */
     justify-content: space-around;
     flex-wrap: wrap;
-    overflow: hidden; 
+    overflow: hidden;
     transition: transform 0.5s ease;
 
-    .offer{
+    .offer {
         border: 2px solid;
         border-radius: 3px;
         padding: 5px;
     }
 }
-.buttons{
+
+.buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    button{
+
+    button {
         margin: 10px 0;
     }
-    
+
 }
-.back_home{
+
+.back_home {
     text-decoration: none;
     color: black;
 }
-
 </style>
   
