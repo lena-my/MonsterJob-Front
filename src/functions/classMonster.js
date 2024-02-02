@@ -60,21 +60,16 @@ export default class Monster {
     isNose = false;
     isHorn = false;
 
-	constructor() {
+	constructor(level) {
         console.log('creation du monstre');
-        
+        if(level && level in this.listLevel ){
+            this.level = level;
+        }
         this.numberEyes = Math.round(Math.random())+1;
         this.isNose = Math.random() <0.5;
         this.isHorn = Math.random() <0.5;
 
 	}
-
-    InitLevel(level){
-        if(level && level in this.listLevel ){
-            this.level = level;
-        }
-        console.log('mis à jour du level : ' + this.level);
-    }
 
     GETColor(){
         return this.listLevel[this.level];

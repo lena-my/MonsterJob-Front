@@ -31,12 +31,9 @@ export default {
 
   data() {
     return {
-      MyMonster: new Monster(),
+      MyMonster: new Monster(this.offer.level),
     }
   },
-  created() {
-    this.MyMonster.InitLevel(this.offer.level);
-  }
 }
 </script>
 <style lang="scss">
@@ -48,6 +45,7 @@ export default {
   position: relative;
   padding-top: 150px;
   min-height: 250px;
+  max-width: 325px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

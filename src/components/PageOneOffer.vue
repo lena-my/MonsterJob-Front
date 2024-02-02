@@ -1,8 +1,8 @@
 <template>
         <router-link :to="{ name: 'ListOffer' }" >Voir la liste des offres</router-link>
 
-      <div class="offerAndMonster" v-if="offer">
-        <OfferGlobal ></OfferGlobal>
+      <div class="offerAndMonster" v-if="offer && HasResponse">
+        <OfferGlobal :offer="offer"></OfferGlobal>
         <MonsterGlobal :offer="offer"></MonsterGlobal>
         <button v-on:click="reload()">Générer une autre offre</button>
 
@@ -23,6 +23,7 @@
     data() {
       return {
         offer: this.GETOffer(),
+        HasResponse: false
       }
     },
     computed: {
@@ -33,6 +34,7 @@
         try {
           const response = await apiService.get('/getOffer');
           this.offer = response.data;
+          this.HasResponse = true;
           console.log(this.offer);
         } catch (error) {
           console.log('Erreur lors de la récupération des données:', error);
